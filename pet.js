@@ -4,6 +4,10 @@ PET-проект
 
 Телеграм + дискорд бот отслеживания игровой информации с оф сервисов для уведомлений в телеграмме и показе информации онлайн в дискорде для нескольких аккаунтов
 
+mongoose - для работы с MongoDB, сама база онлайн на официальном бесплатном облаке потому что в приложении очень мало информации и она будет мало весить 
+axios - удобная для запросов
+
+
 */
 // ----- Подключенные библиотеки -----
 const axios             = require('axios')
@@ -48,16 +52,16 @@ mongoose.connect(config.DB_URL, DB_OPTS).then (() => {
 }).catch((e) => {
    console.error(e)
 })
+
 // -----------------------------
 // ПОДКЛЮЧЕНИЕ ФАЙЛОВ СХЕМ
 require('./schemas/accounts')
 require('./schemas/characters')
 require('./schemas/users')
+
 // -----------------------------
 // СОЗДАНИЕ ПЕРЕМЕННЫХ МОДЕЛЕЙ
 const Account           = mongoose.model('accounts')
-const Character         = mongoose.model('characters')
-
 const User              = mongoose.model('users')
 
 // STARTUP  
